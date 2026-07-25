@@ -16,10 +16,11 @@ export const profile: Profile = {
 
 export const skillGroups: SkillGroup[] = [
   { title: 'Frontend', skills: ['React', 'TypeScript', 'HTML', 'CSS'] },
+  { title: 'Backend', skills: ['Node.js', 'Express', 'API REST', 'PostgreSQL', 'Supabase'] },
   { title: 'Mobile', skills: ['React Native', 'Expo', 'Flutter', 'Dart', 'Google Play'] },
   { title: 'Game development', skills: ['Unity 6', 'C#', 'Gameplay', 'UI'] },
   { title: 'Systèmes', skills: ['Architecture événementielle', 'JSON', 'NavMesh', 'Audio DSP'] },
-  { title: 'Outils & méthodes', skills: ['Git', 'GitHub', 'Tests', 'Itérations client'] },
+  { title: 'Outils & méthodes', skills: ['Git', 'GitHub', 'Playwright', 'Itérations client'] },
 ]
 
 export const projects: Project[] = [
