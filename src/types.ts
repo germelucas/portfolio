@@ -14,6 +14,20 @@ export interface SkillGroup {
   skills: string[]
 }
 
+export interface Experience {
+  title: string
+  organization: string
+  period: string
+  location?: string
+  description: string
+  highlights: string[]
+}
+
+export interface BuilderStep {
+  title: string
+  description: string
+}
+
 export interface ProjectLink {
   label: string
   href?: string

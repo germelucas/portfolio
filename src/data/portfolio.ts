@@ -1,26 +1,63 @@
-import type { Profile, Project, SkillGroup, SocialLink } from '../types'
+import type { BuilderStep, Experience, Profile, Project, SkillGroup, SocialLink } from '../types'
 
 export const profile: Profile = {
   name: 'Lucas Germe',
-  role: 'Développeur full-stack junior',
+  role: 'Développeur full-stack junior & AI Builder',
   location: 'Thiant — mobilité France entière',
-  availability: 'À la recherche d’une première opportunité',
+  availability: 'À la recherche d’un CDI',
   introduction:
-    'Je conçois des expériences interactives et des applications complètes, du prototype jusqu’à une version utilisable.',
+    'Ancien gérant devenu développeur, je transforme des besoins métier en applications utilisables, du cadrage jusqu’au déploiement.',
   about: [
-    'Curieux et rigoureux, je développe mes compétences en construisant des projets complets et en portant une attention particulière à la qualité du code.',
-    'Mon expérience freelance sur ALTAR CORP m’a appris à transformer une direction créative en systèmes concrets, à travailler en autonomie et à présenter régulièrement mes avancées.',
+    'Pendant plus de deux ans, j’ai dirigé une entreprise de services à la personne : équipes, plannings, clients, contrats, trésorerie et décisions quotidiennes. Cette expérience me donne une lecture très concrète des problèmes qu’un produit doit résoudre.',
+    'Je construis aujourd’hui des applications web, mobiles et interactives avec une approche assistée par IA. Les agents accélèrent l’exploration et l’exécution ; je reste responsable du besoin, des arbitrages, de l’intégration, des tests et du résultat livré.',
   ],
   email: 'lucas.germe@gmail.com',
+  cvPath: '/cv-lucas-germe.pdf',
 }
 
 export const skillGroups: SkillGroup[] = [
-  { title: 'Frontend', skills: ['React', 'TypeScript', 'HTML', 'CSS'] },
-  { title: 'Backend', skills: ['Node.js', 'Express', 'API REST', 'PostgreSQL', 'Supabase'] },
-  { title: 'Mobile', skills: ['React Native', 'Expo', 'Flutter', 'Dart', 'Google Play'] },
-  { title: 'Game development', skills: ['Unity 6', 'C#', 'Gameplay', 'UI'] },
-  { title: 'Systèmes', skills: ['Architecture événementielle', 'JSON', 'NavMesh', 'Audio DSP'] },
-  { title: 'Outils & méthodes', skills: ['Git', 'GitHub', 'Playwright', 'Itérations client'] },
+  { title: 'Frontend', skills: ['HTML', 'CSS', 'JavaScript', 'React', 'TypeScript'] },
+  { title: 'Backend & données', skills: ['Node.js', 'Express', 'API REST', 'SQL', 'PostgreSQL', 'SQLite', 'Supabase'] },
+  { title: 'Tests & qualité', skills: ['Playwright', 'Tests end-to-end', 'Non-régression', 'Validation du build'] },
+  { title: 'AI Builder', skills: ['Codex', 'Agents de développement', 'Cadrage fonctionnel', 'Contrôle des diffs', 'Tests & validation'] },
+  { title: 'Mobile & jeu', skills: ['React Native', 'Flutter', 'Unity 6', 'C#', 'Google Play'] },
+  { title: 'Outils', skills: ['Git', 'GitHub', 'npm', 'Vercel', 'Terminal'] },
+  { title: 'Notions en progression', skills: ['Kotlin', 'Java', 'Spring Boot', 'Docker', 'CI/CD', 'Sécurité backend'] },
+]
+
+export const aiBuilderSteps: BuilderStep[] = [
+  { title: 'Cadrer', description: 'Transformer un besoin réel en périmètre, comportements attendus et critères vérifiables.' },
+  { title: 'Orchestrer', description: 'Guider les agents dans une codebase, découper le travail et maintenir une direction produit cohérente.' },
+  { title: 'Contrôler', description: 'Relire les changements, reproduire les bugs, demander les tests et vérifier les builds.' },
+  { title: 'Livrer', description: 'Faire converger les itérations vers une application fonctionnelle, compréhensible et déployée.' },
+]
+
+export const experiences: Experience[] = [
+  {
+    title: 'Gérant',
+    organization: 'LG Services / Domicile Clean Cambrai',
+    period: 'Mars 2024 — octobre 2026 (fin prévue)',
+    location: 'Cambrai',
+    description: 'Création et pilotage quotidien d’une entreprise de services à la personne.',
+    highlights: [
+      'Organisation de 200 à 230 heures de prestations par mois et adaptation des plannings aux absences et contraintes clients.',
+      'Recrutement, intégration et suivi des intervenants ; gestion des contrats clients et salariés.',
+      'Devis, facturation, administration, relation client, trésorerie, charges et suivi de la rentabilité.',
+      'Développement d’une activité réalisant environ 70 000 à 83 000 € de chiffre d’affaires annuel.',
+    ],
+  },
+  {
+    title: 'Développeur Unity freelance',
+    organization: 'ALTAR VISION — ALTAR CORP',
+    period: 'Avril — mai 2026',
+    location: 'Mission de 6 semaines',
+    description: 'Seul développeur de la démo Windows jouable d’un FPS rythmique.',
+    highlights: [
+      'Développement des systèmes de gameplay, armes, ennemis, score, interface et réglages.',
+      'Synchronisation de la musique avec les tirs, apparitions, éclairages et retours visuels.',
+      'Intégration des assets fournis, débogage, itérations client et livraison du build.',
+    ],
+  },
 ]
 
 export const projects: Project[] = [

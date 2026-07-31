@@ -1,6 +1,6 @@
-# Portfolio — Développeur full-stack junior
+# Portfolio — Développeur full-stack junior & AI Builder
 
-Portfolio professionnel en page unique, développé avec React, TypeScript et Vite. Le site est statique, responsive, accessible et prêt à être déployé sur Vercel.
+Portfolio professionnel en page unique, développé avec React, TypeScript et Vite. Le site présente le parcours entrepreneurial de Lucas Germe, ses projets techniques et sa méthode de développement assistée par IA. Il est statique, responsive, accessible et prêt à être déployé sur Vercel.
 
 ## Installation
 
@@ -17,13 +17,15 @@ Le serveur local indique l’adresse à ouvrir, généralement `http://localhost
 
 Toutes les informations visibles sont centralisées dans `src/data/portfolio.ts` : identité, présentation, compétences, projets et liens. Les liens laissés vides sont affichés comme indisponibles afin de ne jamais publier de contenu factice.
 
-Pour proposer le CV au téléchargement :
+Le CV est disponible dans `public/cv-lucas-germe.pdf` et sa version modifiable dans `public/cv-lucas-germe.docx`. Pour le régénérer après une modification de contenu :
 
-1. ajouter `public/cv-prenom-nom.pdf` ;
-2. renseigner `cvPath: '/cv-prenom-nom.pdf'` dans l’objet `profile` ;
-3. ne jamais inclure d’adresse complète ou d’information sensible.
+```powershell
+& '<python fourni par l’environnement Codex>' scripts/build_cv.py
+```
 
-Mettre également à jour les métadonnées de `index.html` et les textes de `public/og-image.svg`.
+La propriété `cvPath` de `src/data/portfolio.ts` pointe vers le PDF. Ne jamais inclure d’adresse complète ou d’information sensible.
+
+Mettre également à jour les métadonnées de `index.html` et l’aperçu social `public/og.png`.
 
 ## Vérifications
 
@@ -76,5 +78,6 @@ src/
   App.tsx           Structure de la page
   App.css           Identité visuelle responsive
   types.ts          Modèles TypeScript
-public/             Favicon, image sociale et futur CV
+public/             Favicon, image sociale et CV téléchargeable
+scripts/            Générateur reproductible du CV Word
 ```

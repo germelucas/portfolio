@@ -58,6 +58,22 @@ h2 { margin: 0; font-size: clamp(2.25rem, 5vw, 4.4rem); line-height: 1.05; lette
 .facts div { padding: 1.1rem 0; display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--line); }
 .facts dt { color: var(--muted); }
 .facts dd { margin: 0; text-align: right; font-weight: 650; }
+.builder-lead { margin-top: -2.25rem; }
+.builder-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.builder-card { min-height: 260px; padding: 1.75rem; background: linear-gradient(145deg, rgba(98,168,255,.07), transparent 48%), var(--surface); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.builder-card > span { display: block; margin-bottom: 3.5rem; color: var(--accent); font-size: .7rem; font-weight: 800; letter-spacing: .16em; }
+.builder-card h3 { margin: 0 0 1rem; font-size: 1.2rem; }
+.builder-card p { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.7; }
+.experience-list { border-top: 1px solid var(--line); }
+.experience-card { padding: 2.25rem 0; display: grid; grid-template-columns: minmax(220px, .65fr) 1.7fr; gap: 4rem; border-bottom: 1px solid var(--line); }
+.experience-meta p { margin: 0 0 .45rem; color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.experience-meta span { color: var(--muted); font-size: .85rem; }
+.experience-organization { margin: 0 0 .45rem; color: var(--muted); font-size: .78rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.experience-content h3 { margin: 0; font-size: clamp(1.5rem, 3vw, 2.3rem); }
+.experience-content > p:not(.experience-organization) { max-width: 720px; color: #c2cad3; line-height: 1.7; }
+.experience-content ul { margin: 1.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem 2.5rem; list-style: none; }
+.experience-content li { position: relative; padding-left: 1rem; color: var(--muted); font-size: .9rem; line-height: 1.65; }
+.experience-content li::before { content: ''; width: 4px; height: 4px; position: absolute; top: .65rem; left: 0; background: var(--accent); border-radius: 50%; }
 .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
 .skill-card { min-height: 180px; padding: 1.5rem; background: var(--surface); border: 1px solid var(--line); border-radius: .55rem; }
 .skill-card h3 { margin: 0 0 2rem; font-size: 1rem; }
@@ -262,7 +278,9 @@ figcaption { margin-top: .75rem; color: var(--muted); font-size: .78rem; line-he
   .nav.open { display: flex; }
   .hero { grid-template-columns: 1fr; gap: 2rem; }
   .hero-mark { display: none; }
-  .about-grid, .contact-panel { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-grid, .contact-panel, .experience-card { grid-template-columns: 1fr; gap: 2.5rem; }
+  .builder-grid { grid-template-columns: repeat(2, 1fr); }
+  .experience-content ul { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
   .case-intro, .brand-proof, .rhythm-layout, .code-section, .case-links { grid-template-columns: 1fr; gap: 2.5rem; }
   .brand-proof dl { min-height: 140px; }
@@ -286,6 +304,10 @@ figcaption { margin-top: .75rem; color: var(--muted); font-size: .78rem; line-he
   .site-header { padding-inline: 1rem; }
   .section { padding: 6rem 0; }
   .section-heading { margin-bottom: 3rem; }
+  .builder-grid { grid-template-columns: 1fr; }
+  .builder-card { min-height: auto; }
+  .builder-card > span { margin-bottom: 2rem; }
+  .experience-card { gap: 1.25rem; }
   .availability { margin-bottom: 2rem; }
   .project-card { grid-template-columns: 1fr; gap: .8rem; }
   .project-title-row { flex-direction: column; }

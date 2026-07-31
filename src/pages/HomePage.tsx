@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react'
 import { ProjectCard } from '../components/ProjectCard'
 import { Section } from '../components/Section'
 import { Tag } from '../components/Tag'
-import { profile, projects, skillGroups, socialLinks } from '../data/portfolio'
+import { aiBuilderSteps, experiences, profile, projects, skillGroups, socialLinks } from '../data/portfolio'
 
 const navItems = [
   { href: '#a-propos', label: 'À propos' },
+  { href: '#parcours', label: 'Parcours' },
   { href: '#competences', label: 'Compétences' },
   { href: '#projets', label: 'Projets' },
   { href: '#contact', label: 'Contact' },
@@ -16,11 +17,11 @@ export function HomePage() {
   const initials = profile.name.split(' ').map((part) => part[0]).join('').slice(0, 2)
 
   useEffect(() => {
-    document.title = 'Lucas Germe — Développeur full-stack junior'
-    document.querySelector('meta[name="description"]')?.setAttribute('content', 'Portfolio de Lucas Germe, développeur full-stack junior : expérience freelance Unity, applications mobiles publiées et projets.')
-    document.querySelector('meta[property="og:title"]')?.setAttribute('content', 'Lucas Germe — Développeur full-stack junior')
-    document.querySelector('meta[property="og:description"]')?.setAttribute('content', 'Expérience freelance Unity, compétences techniques et projets de développement.')
-    document.querySelector('meta[property="og:image"]')?.setAttribute('content', '/og-image.svg')
+    document.title = 'Lucas Germe — Développeur full-stack junior & AI Builder'
+    document.querySelector('meta[name="description"]')?.setAttribute('content', 'Portfolio de Lucas Germe, développeur full-stack junior et AI Builder : expérience de gérant, applications publiées et projets full-stack.')
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', 'Lucas Germe — Développeur full-stack junior & AI Builder')
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', 'Un profil orienté produit, entre développement full-stack, expérience entrepreneuriale et construction assistée par IA.')
+    document.querySelector('meta[property="og:image"]')?.setAttribute('content', '/og.png')
 
     const savedScrollPosition = sessionStorage.getItem('portfolio-project-scroll')
     if (savedScrollPosition) {
@@ -63,20 +64,29 @@ export function HomePage() {
         <Section id="a-propos" eyebrow="01 — À propos" title="Construire, comprendre, progresser.">
           <div className="about-grid">
             <div className="about-copy">{profile.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
-            <dl className="facts"><div><dt>Profil</dt><dd>Junior</dd></div><div><dt>Localisation</dt><dd>{profile.location}</dd></div><div><dt>Objectif</dt><dd>CDI / alternance</dd></div></dl>
+            <dl className="facts"><div><dt>Profil</dt><dd>Full-stack & AI Builder</dd></div><div><dt>Localisation</dt><dd>{profile.location}</dd></div><div><dt>Objectif</dt><dd>CDI</dd></div></dl>
           </div>
         </Section>
 
-        <Section id="competences" eyebrow="02 — Compétences" title="Une vision complète du produit.">
+        <Section id="methode" eyebrow="02 — AI Builder" title="Accélérer l’exécution, garder la responsabilité.">
+          <p className="section-lead builder-lead">Je sais construire et faire évoluer des applications avec l’aide d’agents IA, comprendre leur architecture, suivre le parcours des données et vérifier chaque livraison.</p>
+          <div className="builder-grid">{aiBuilderSteps.map((step, index) => <article className="builder-card" key={step.title}><span>{String(index + 1).padStart(2, '0')}</span><h3>{step.title}</h3><p>{step.description}</p></article>)}</div>
+        </Section>
+
+        <Section id="parcours" eyebrow="03 — Parcours" title="Des responsabilités réelles, puis du code.">
+          <div className="experience-list">{experiences.map((experience) => <article className="experience-card" key={`${experience.title}-${experience.organization}`}><div className="experience-meta"><p>{experience.period}</p><span>{experience.location}</span></div><div className="experience-content"><p className="experience-organization">{experience.organization}</p><h3>{experience.title}</h3><p>{experience.description}</p><ul>{experience.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul></div></article>)}</div>
+        </Section>
+
+        <Section id="competences" eyebrow="04 — Compétences" title="Une vision complète du produit.">
           <div className="skills-grid">{skillGroups.map((group) => <article className="skill-card" key={group.title}><h3>{group.title}</h3><div className="tag-list">{group.skills.map((skill) => <Tag key={skill}>{skill}</Tag>)}</div></article>)}</div>
         </Section>
 
-        <Section id="projets" eyebrow="03 — Projets" title="Des idées transformées en solutions.">
+        <Section id="projets" eyebrow="05 — Projets" title="Des idées transformées en solutions.">
           <p className="section-lead">Des expériences concrètes où j’ai conçu, développé et livré des systèmes complets.</p>
           <div className="projects-list">{projects.filter((project) => !project.hidden).map((project, index) => <ProjectCard key={project.title} project={project} index={index} />)}</div>
         </Section>
 
-        <Section id="contact" eyebrow="04 — Contact" title="Travaillons ensemble.">
+        <Section id="contact" eyebrow="06 — Contact" title="Travaillons ensemble.">
           <div className="contact-panel"><div><p>Une opportunité, une question ou simplement envie d’échanger ? Je serai ravi de vous répondre.</p></div><div className="social-links">{socialLinks.map((link) => link.href ? <a key={link.label} href={link.href}>{link.label}<span aria-hidden="true">↗</span></a> : <span key={link.label} className="social-disabled">{link.label}<small>À renseigner</small></span>)}</div></div>
         </Section>
       </main>
